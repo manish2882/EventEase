@@ -1,4 +1,5 @@
 @page "/register/{Id:int}"
+@using EventEase.Models
 
 <h2>Event Registration</h2>
 
@@ -23,4 +24,48 @@
     public int Id { get; set; }
 
     private string AttendeeName = "";
+}
+
+<EditForm Model="@registration"
+          OnValidSubmit="HandleSubmit">
+
+    <DataAnnotationsValidator />
+
+    <ValidationSummary />
+
+    <div class="mb-3">
+        <label>Name</label>
+
+        <InputText class="form-control"
+                   @bind-Value="registration.Name" />
+    </div>
+
+    <button type="submit"
+            class="btn btn-primary">
+        Register
+    </button>
+
+</EditForm>
+
+@if (submitted)
+{
+    <p class="text-success">
+        Registration Successful!
+    </p>
+}
+
+@code {
+
+    [Parameter]
+    public int Id { get; set; }
+
+    private RegistrationModel registration = new();
+
+    private bool submitted;
+
+    private void HandleSubmit()
+    {
+        submitted = true;
+    }
+
 }

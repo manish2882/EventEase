@@ -1,5 +1,6 @@
 @page "/events"
 @using EventEase.Models
+@inject EventService EventService
 
 <h2>Upcoming Events</h2>
 
@@ -33,4 +34,22 @@
             Location = "Gurugram"
         }
     };
+}
+
+<Virtualize Items="Events"
+            Context="evt">
+
+    <EventCard EventItem="evt" />
+
+</Virtualize>
+
+@code {
+
+    private List<Event> Events = new();
+
+    protected override void OnInitialized()
+    {
+        Events = EventService.GetEvents();
+    }
+
 }
