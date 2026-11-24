@@ -1,0 +1,36 @@
+@page "/events"
+@using EventEase.Models
+
+<h2>Upcoming Events</h2>
+
+@foreach (var evt in Events)
+{
+    <EventCard EventItem="evt" />
+}
+
+@code {
+    private List<Event> Events = new()
+    {
+        new Event
+        {
+            Id = 1,
+            Name = "Tech Conference 2026",
+            Date = new DateTime(2026,12,10),
+            Location = "Delhi"
+        },
+        new Event
+        {
+            Id = 2,
+            Name = "Corporate Leadership Summit",
+            Date = new DateTime(2026,12,18),
+            Location = "Noida"
+        },
+        new Event
+        {
+            Id = 3,
+            Name = "Business Networking Meetup",
+            Date = new DateTime(2027,1,5),
+            Location = "Gurugram"
+        }
+    };
+}

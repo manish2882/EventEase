@@ -1,0 +1,26 @@
+@page "/register/{Id:int}"
+
+<h2>Event Registration</h2>
+
+<p>Registering for Event ID: @Id</p>
+
+<div class="mb-3">
+    <label>Name</label>
+    <input class="form-control"
+           @bind="AttendeeName" />
+</div>
+
+<p>
+    Registrant: @AttendeeName
+</p>
+
+<button class="btn btn-primary">
+    Submit Registration
+</button>
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+
+    private string AttendeeName = "";
+}

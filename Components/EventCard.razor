@@ -1,0 +1,23 @@
+@using EventEase.Models
+
+<div class="card m-2 p-3 shadow-sm">
+    <h4>@EventItem.Name</h4>
+
+    <p>
+        <strong>Date:</strong> @EventItem.Date.ToShortDateString()
+    </p>
+
+    <p>
+        <strong>Location:</strong> @EventItem.Location
+    </p>
+
+    <NavLink class="btn btn-primary"
+             href="/eventdetails/@EventItem.Id">
+        View Details
+    </NavLink>
+</div>
+
+@code {
+    [Parameter]
+    public Event EventItem { get; set; } = new();
+}

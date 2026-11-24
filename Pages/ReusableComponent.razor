@@ -1,0 +1,20 @@
+@using RazorDemo.Services
+@inject DataService DataService
+
+<h3>Available Products</h3>
+
+<ul>
+    @foreach (var item in Items)
+    {
+        <li>@item</li>
+    }
+</ul>
+
+@code {
+    private List<string> Items = new();
+
+    protected override void OnInitialized()
+    {
+        Items = DataService.GetData();
+    }
+}

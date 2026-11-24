@@ -1,0 +1,15 @@
+@page "/eventdetails/{Id:int}"
+
+<h2>Event Details</h2>
+
+<p>Viewing details for Event ID: @Id</p>
+
+<NavLink class="btn btn-success"
+         href="/register/@Id">
+    Register
+</NavLink>
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+}
